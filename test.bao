@@ -31,4 +31,16 @@ let func5 = func(5);
 print("--- Currying and Closure ---");
 print(func5(6)(7));
 
+// If and Match statements
+let var = 1;
+print("--- If and Match statements ---");
+print(if var == 1 then "one" else "not one");
+//print("one" if var == 1 else "not one"); also works
+print(match var {
+    0 -> "zero";
+    1 -> "one";
+    2 -> "two";
+    _ -> "not zero, one, nor two";
+});
+
 

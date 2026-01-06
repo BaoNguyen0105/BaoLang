@@ -119,8 +119,67 @@ Label0:
 	pop
 	invokeinterface baolang/LambdaInterface/call(Ljava/util/ArrayList;)Ljava/lang/Object; 2
 	invokestatic baolang/BaoLangFunctions/print(Ljava/lang/Object;)Ljava/lang/Object;
+.var 9 is var Ljava/lang/Object; from Label0 to Label1
+	iconst_1
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	astore 9
+	ldc "--- If and Match statements ---"
+	invokestatic baolang/BaoLangFunctions/print(Ljava/lang/Object;)Ljava/lang/Object;
+	aload 9
+	iconst_1
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	invokestatic baolang/BaoLangOperators/eq(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+	checkcast java/lang/Boolean
+	invokevirtual java/lang/Boolean/booleanValue()Z
+	ifeq Label2
+	ldc "one"
+	goto Label3
+Label2:
+	ldc "not one"
+Label3:
+	nop
+	invokestatic baolang/BaoLangFunctions/print(Ljava/lang/Object;)Ljava/lang/Object;
+	aload 9
+	dup
+	iconst_0
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	invokestatic baolang/BaoLangOperators/eq(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+	checkcast java/lang/Boolean
+	invokevirtual java/lang/Boolean/booleanValue()Z
+	ifeq Label5
+	pop
+	ldc "zero"
+	goto Label4
+Label5:
+	dup
+	iconst_1
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	invokestatic baolang/BaoLangOperators/eq(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+	checkcast java/lang/Boolean
+	invokevirtual java/lang/Boolean/booleanValue()Z
+	ifeq Label6
+	pop
+	ldc "one"
+	goto Label4
+Label6:
+	dup
+	iconst_2
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	invokestatic baolang/BaoLangOperators/eq(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+	checkcast java/lang/Boolean
+	invokevirtual java/lang/Boolean/booleanValue()Z
+	ifeq Label7
+	pop
+	ldc "two"
+	goto Label4
+Label7:
+	pop
+	ldc "not zero, one, nor two"
+	goto Label4
+Label4:
+	invokestatic baolang/BaoLangFunctions/print(Ljava/lang/Object;)Ljava/lang/Object;
 	return
 Label1:
-.limit stack 65
-.limit locals 9
+.limit stack 89
+.limit locals 10
 .end method
