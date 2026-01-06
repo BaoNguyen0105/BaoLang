@@ -43,4 +43,22 @@ print(match var {
     _ -> "not zero, one, nor two";
 });
 
+// Recursion
+print("--- Recursion ---");
+let fact = n -> if n <= 1 then 1 else n * fact(n-1);
+print(fact(5));
+
+// Block scope
+let t1 = 5;
+let t2 = 6;
+let t = {
+    let t1 = 1;
+    let t2 = 2;
+    t1 + t2 // final statement is the return statement
+};
+print("--- Block scope ---");
+print(t);
+print(t1+t2);
+
+
 

@@ -34,8 +34,8 @@ class ASTGen(BaoLangVisitor):
         return ExprStmt(expr, line, column)
     
     def visitIfExpr2(self, ctx: BaoLangParser.IfExpr2Context) -> IfExpr:
-        condition = self.visit(ctx.expr(0))
-        then_branch = self.visit(ctx.expr(1))
+        then_branch = self.visit(ctx.expr(0))
+        condition = self.visit(ctx.expr(1))
         else_branch = self.visit(ctx.expr(2)) if ctx.expr(2) else None
         line = ctx.start.line
         column = ctx.start.column

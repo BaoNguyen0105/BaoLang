@@ -60,6 +60,7 @@ class CodeGen(ASTVisitor):
     def visit_if_expr(self, node: "IfExpr", o: Access = None):
         else_label=o.frame.get_new_label()
         end_if_label=o.frame.get_new_label()
+
         self.visit(node.condition, o)
         self.emit.print_out(self.emit.emit_if_false(else_label, o.frame))
         self.visit(node.then_branch, o)
@@ -303,11 +304,10 @@ class CodeGen(ASTVisitor):
         
 
     def visit_block_expr(self, node: "BlockExpr", o: Access = None):
-        scope=copy.deepcopy(o)
+        scope = Access(o.frame, list(o.sym), o.lambda_name)
         for stmt in node.statements:
             self.visit(stmt, scope)
         self.visit(node.expression, scope)
-
 class GetUsedIdentifier(ASTVisitor):
     def __init__(self ):
         self.used_symbols: List[str] = []

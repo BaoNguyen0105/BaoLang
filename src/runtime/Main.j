@@ -178,8 +178,55 @@ Label7:
 	goto Label4
 Label4:
 	invokestatic baolang/BaoLangFunctions/print(Ljava/lang/Object;)Ljava/lang/Object;
+	ldc "--- Recursion ---"
+	invokestatic baolang/BaoLangFunctions/print(Ljava/lang/Object;)Ljava/lang/Object;
+.var 10 is fact Ljava/lang/Object; from Label0 to Label1
+	new Lambda6
+	dup
+	invokespecial Lambda6/<init>()V
+	astore 10
+	aload 10
+	new java/util/ArrayList
+	dup
+	invokespecial java/util/ArrayList/<init>()V
+	dup
+	iconst_5
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	invokevirtual java/util/ArrayList/add(Ljava/lang/Object;)Z
+	pop
+	invokeinterface baolang/LambdaInterface/call(Ljava/util/ArrayList;)Ljava/lang/Object; 2
+	invokestatic baolang/BaoLangFunctions/print(Ljava/lang/Object;)Ljava/lang/Object;
+.var 11 is t1 Ljava/lang/Object; from Label0 to Label1
+	iconst_5
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	astore 11
+.var 12 is t2 Ljava/lang/Object; from Label0 to Label1
+	bipush 6
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	astore 12
+.var 13 is t Ljava/lang/Object; from Label0 to Label1
+.var 14 is t1 Ljava/lang/Object; from Label0 to Label1
+	iconst_1
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	astore 14
+.var 15 is t2 Ljava/lang/Object; from Label0 to Label1
+	iconst_2
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	astore 15
+	aload 14
+	aload 15
+	invokestatic baolang/BaoLangOperators/add(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+	astore 13
+	ldc "--- Block scope ---"
+	invokestatic baolang/BaoLangFunctions/print(Ljava/lang/Object;)Ljava/lang/Object;
+	aload 13
+	invokestatic baolang/BaoLangFunctions/print(Ljava/lang/Object;)Ljava/lang/Object;
+	aload 11
+	aload 12
+	invokestatic baolang/BaoLangOperators/add(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+	invokestatic baolang/BaoLangFunctions/print(Ljava/lang/Object;)Ljava/lang/Object;
 	return
 Label1:
-.limit stack 89
-.limit locals 10
+.limit stack 115
+.limit locals 16
 .end method

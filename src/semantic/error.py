@@ -2,6 +2,13 @@
 import warnings
 from antlr4.error.ErrorListener import ErrorListener
 
+def custom_format(message, category, filename, lineno, line=None):
+    # This changes the output to a clean, one-line format
+    return f'warning - {message}\n'
+
+# Apply the new format
+warnings.formatwarning = custom_format
+
 class StaticError(Exception):
     """Base class for all static semantic errors in OPLang"""
     pass

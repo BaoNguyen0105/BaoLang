@@ -34,24 +34,30 @@ letStmt: LET ID ASSIGN expr SEMI ;
 exprStmt: expr SEMI ;
 
 // expressions - return a value
-expr:LBRACE stmt* expr RBRACE           # blockExpr
-    | expr LBRACKET expr RBRACKET   # listAccessExpr
-    | expr LPAREN (expr (COMMA expr)*)? RPAREN  # funcCallExpr
-    | MATCH expr LBRACE matchCase+ RBRACE # matchExpr
-    | IF expr THEN expr (ELSE expr)?  # ifExpr1
-    | expr IF expr ELSE expr        # ifExpr2
-    | ID                                # idExpr
-    | (INTLIT | FLOATLIT | STRINGLIT | BOOLLIT) # litExpr
-    | expr (PLUS|MINUS) expr        # addSubExpr
-    | expr (MULTIPLY|DIVIDE|MODULO) expr  # mulDivModExpr
-    | expr (LT|GT|LE|GE) expr       # relExpr
-    | expr (EQUAL|NOTEQUAL) expr    # eqExpr
-    | expr (AND|OR) expr            # logicExpr
-    | NOT expr                      # notExpr
-    | MINUS expr                    # negExpr
-    | LBRACKET (expr (COMMA expr)*)? RBRACKET # listExpr
-    | paramList ARROW expr                    # lambdaExpr
-    | LPAREN expr RPAREN            # parenExpr 
+expr:ID                                          # idExpr
+    | (INTLIT | FLOATLIT | STRINGLIT | BOOLLIT)   # litExpr
+
+    | expr LPAREN (expr (COMMA expr)*)? RPAREN    # funcCallExpr
+    | expr LBRACKET expr RBRACKET                 # listAccessExpr
+
+    | expr (PLUS | MINUS) expr                    # addSubExpr
+    | expr (MULTIPLY | DIVIDE | MODULO) expr      # mulDivModExpr
+    | expr (EQUAL | NOTEQUAL) expr                # eqExpr
+    | expr (LT | GT | LE | GE) expr               # relExpr
+    | expr OR expr                                # orExpr
+    | expr AND expr                               # andExpr
+    | (NOT | MINUS) expr                          # unaryExpr
+
+    | MATCH expr LBRACE matchCase+ RBRACE         # matchExpr
+    | LBRACE stmt* expr RBRACE                    # blockExpr
+    | LBRACKET (expr (COMMA expr)*)? RBRACKET     # listExpr
+    
+
+    | IF expr THEN expr ELSE expr                 # ifExpr1
+    | expr IF expr ELSE expr                      # ifExpr2
+
+    | paramList ARROW expr                        # lambdaExpr
+    | LPAREN expr RPAREN                          # parenExpr 
     ;
 
 matchCase : (pattern ARROW expr SEMI) ;

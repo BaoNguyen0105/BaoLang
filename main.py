@@ -31,7 +31,7 @@ def error_display(error, filename, line, column):
         f"\n--- {filename} ---",
         f"Error at [Line {line}, Col {column}]: {error}",
         f"  {line} | {line_text}",
-        f"    | {pointer}",
+        f"     | {pointer}",
         "------------------------"
     ]
     return "\n".join(error_report)
