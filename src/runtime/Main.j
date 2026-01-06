@@ -85,8 +85,7 @@ Label0:
 	dup
 	invokespecial Lambda3/<init>()V
 	astore 7
-	ldc "--- Currying ---"
-	invokestatic baolang/BaoLangFunctions/print(Ljava/lang/Object;)Ljava/lang/Object;
+.var 8 is func5 Ljava/lang/Object; from Label0 to Label1
 	aload 7
 	new java/util/ArrayList
 	dup
@@ -97,6 +96,10 @@ Label0:
 	invokevirtual java/util/ArrayList/add(Ljava/lang/Object;)Z
 	pop
 	invokeinterface baolang/LambdaInterface/call(Ljava/util/ArrayList;)Ljava/lang/Object; 2
+	astore 8
+	ldc "--- Currying and Closure ---"
+	invokestatic baolang/BaoLangFunctions/print(Ljava/lang/Object;)Ljava/lang/Object;
+	aload 8
 	new java/util/ArrayList
 	dup
 	invokespecial java/util/ArrayList/<init>()V
@@ -118,6 +121,6 @@ Label0:
 	invokestatic baolang/BaoLangFunctions/print(Ljava/lang/Object;)Ljava/lang/Object;
 	return
 Label1:
-.limit stack 64
-.limit locals 8
+.limit stack 65
+.limit locals 9
 .end method

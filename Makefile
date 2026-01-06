@@ -33,5 +33,10 @@ clear:
 	@rm -rf $(RUNTIME_DIR)/*.j
 	@rm -rf $(RUNTIME_DIR)/*.class
 
+venv:
+	@echo "installing the necessary dependencies..."
+	@python3 -m venv $(VENV)
+	@./$(VENV)/bin/pip install -r requirements.txt
+	@echo "Installation completed"
 %:
 	@:

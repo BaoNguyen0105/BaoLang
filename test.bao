@@ -25,9 +25,10 @@ let g = f, n -> f(n);
 print("--- High level function ---");
 print(g(succ, 5));
 
-// Currying
+// Currying & Closure
 let func = x -> y -> z -> x + y + z;
-print("--- Currying ---");
-print(func(5)(6)(7));
+let func5 = func(5);
+print("--- Currying and Closure ---");
+print(func5(6)(7));
 
 
