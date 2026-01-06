@@ -45,7 +45,7 @@ print(match var {
 
 // Recursion
 print("--- Recursion ---");
-let fact = n -> if n <= 1 then 1 else n * fact(n-1);
+let fact = n -> 1 if n <= 1 else n * fact(n-1);
 print(fact(5));
 
 // Block scope
