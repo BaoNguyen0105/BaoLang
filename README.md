@@ -11,6 +11,7 @@ BaoLang is a clean, functional-oriented language designed for simplicity and log
 * **Recursion**: Built-in support for self-referencing recursive logic.
 
 ## File Structure
+```
 .
 ├── external
 │   ├── antlr-4.13.2-complete.jar
@@ -43,7 +44,7 @@ BaoLang is a clean, functional-oriented language designed for simplicity and log
 ├── requirements.txt
 ├── main.py
 └── test.bao
-
+```
 
 ## Getting Started
 ### 0. Install necessary dependencies
