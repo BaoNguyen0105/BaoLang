@@ -1,0 +1,33 @@
+// 1. all var is const
+// 2. functions can be args or return types
+// 3. all var is dynamic typed
+
+// Literal values
+print("--- Literal Values ---");
+print(true);        // true
+print(42);          // 42
+
+// Basic operations
+let a = 10;
+let b = 20;
+let c = a + b;
+print("--- Basic Operations ---");
+print(c); // 30
+
+// Functions and Lambdas
+print("--- Functions and Lambdas ---");
+let add = x,y -> x+y;
+print(add(5, 7)); // 12
+
+// High-level function
+let succ = n -> n+1;
+let g = f, n -> f(n);
+print("--- High level function ---");
+print(g(succ, 5));
+
+// Currying
+let func = x -> y -> z -> x + y + z;
+print("--- Currying ---");
+print(func(5)(6)(7));
+
+
